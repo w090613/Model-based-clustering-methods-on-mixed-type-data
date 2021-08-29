@@ -94,7 +94,7 @@ tf_null = sapply(1:n,function(x) is.null(clustx3_same[[x]]))
 id_more = c(1:n)[tf_null]
 clustx3_same_more<-lapply(id_more,function(x) {
   set.seed(1)
-  return(tryCatch(clustx3_skp(datasets[[x]],1e5),error=function(e) NULL))
+  return(tryCatch(clustx3(datasets[[x]],1e5),error=function(e) NULL))
 })
 
 
@@ -113,11 +113,11 @@ tf_null = sapply(1:n,function(x) is.null(clustx3_diff[[x]]))
 id_more = c(1:n)[tf_null]
 clustx3_diff_more<-lapply(id_more,function(x) {
   set.seed(1)
-  return(tryCatch(clustx3_skp(datasets[[x]],1e5),error=function(e) NULL))
+  return(tryCatch(clustx3(datasets[[x]],1e5),error=function(e) NULL))
 })
 
 
-############plot#####################
+############plot default overlap#####################
 mu2 = -2 * qnorm(OVERLAP_DEFAULT/2)
 a=seq(-5,10,length.out=1000)
 b=seq(-5,10,length.out = 1000)
